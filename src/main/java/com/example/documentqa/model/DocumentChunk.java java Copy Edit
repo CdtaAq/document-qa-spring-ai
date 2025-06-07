@@ -1,0 +1,30 @@
+package com.example.documentqa.model;
+
+import org.hibernate.annotations.Type;
+import java.util.UUID;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "document_embeddings")
+public class DocumentChunk {
+
+    @Id
+    private UUID id;
+
+    @Column(columnDefinition = "TEXT")
+    private String content;
+
+    @Column(columnDefinition = "vector(1536)")
+    private float[] embedding;
+
+    public DocumentChunk() {}
+
+    public DocumentChunk(UUID id, String content, float[] embedding) {
+        this.id = id;
+        this.content = content;
+        this.embedding = embedding;
+    }
+
+    // Getters & Setters
+}
